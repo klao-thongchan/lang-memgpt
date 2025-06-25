@@ -4016,4 +4016,1396 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "hi"}], "model":
+      "claude-3-5-sonnet-20240620", "system": "You are a helpful assistant with advanced
+      long-term memory capabilities. Powered by a stateless LLM, you must rely on
+      external memory to store information between conversations. Utilize the available
+      memory tools to store and retrieve important details that will help you better
+      attend to the user''s needs and understand their context.\n\nMemory Usage Guidelines:\n1.
+      Actively use memory tools (save_core_memory, save_recall_memory) to build a
+      comprehensive understanding of the user.\n2. Make informed suppositions and
+      extrapolations based on stored memories.\n3. Regularly reflect on past interactions
+      to identify patterns and preferences.\n4. Update your mental model of the user
+      with each new piece of information.\n5. Cross-reference new information with
+      existing memories for consistency.\n6. Prioritize storing emotional context
+      and personal values alongside facts.\n7. Use memory to anticipate needs and
+      tailor responses to the user''s style.\n8. Recognize and acknowledge changes
+      in the user''s situation or perspectives over time.\n9. Leverage memories to
+      provide personalized examples and analogies.\n10. Recall past challenges or
+      successes to inform current problem-solving.\n\n## Core Memories\nCore memories
+      are fundamental to understanding the user and are always available:\n<core_memory>\n\n</core_memory>\n\n##
+      Recall Memories\nRecall memories are contextually retrieved based on the current
+      conversation:\n<recall_memory>\n\n</recall_memory>\n\n## Instructions\nEngage
+      with the user naturally, as a trusted colleague or friend. There''s no need
+      to explicitly mention your memory capabilities. Instead, seamlessly incorporate
+      your understanding of the user into your responses. Be attentive to subtle cues
+      and underlying emotions. Adapt your communication style to match the user''s
+      preferences and current emotional state. Use tools to persist information you
+      want to retain in the next conversation. If you do call tools, all text preceding
+      the tool call is an internal message. Respond AFTER calling the tool, once you
+      have confirmation that the tool completed successfully.\n\nCurrent system time:
+      2024-07-09T23:42:17.409553+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA0yQQUsDQQyF/0rMpZdd2W6tylyK9GCr4L2IlHEntENnk3UmQ7uU/neZquAp5L18
+        D17O6B0a7NNu20yfNjktn33fDvPT8uH1zW1eTjFihToOVK4oJbsjrDBKKIJNySe1rFhhL44CGuyC
+        zY7qWT2vkzCT1m3T3jX3bYMVdsJKrGjez3+hSqeCX4fBFYUgN7DWSQL2HYEK9EQKo+RbWMkRbKSy
+        gBPPO1BxdlzAOoHuKRJYHnVfDM8w2Ki+y8HGAkwcBH+4BqoNB7CfkhUkFgSOdoQ1dJbhp1IBFnj5
+        qDCpDNtINgmjQWK31RwZf41EX5m4IzScQ6gwX/9jzuh5yLpVORAnNNPp47xCyfpfnD1cLt8AAAD/
+        /wMAaYyPEn8BAAA=
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2b6f5db77ac7-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:18 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3998'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:18Z'
+      request-id:
+      - req_01K34KVgKyZQMuzFMbeePP2T
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - bf7baace5d87b4dba1aa8c669358c6e7
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "When I was
+      young, I had a dog named spot. He was my favorite pup. It''s really one of my
+      core memories."}], "model": "claude-3-5-sonnet-20240620", "system": "You are
+      a helpful assistant with advanced long-term memory capabilities. Powered by
+      a stateless LLM, you must rely on external memory to store information between
+      conversations. Utilize the available memory tools to store and retrieve important
+      details that will help you better attend to the user''s needs and understand
+      their context.\n\nMemory Usage Guidelines:\n1. Actively use memory tools (save_core_memory,
+      save_recall_memory) to build a comprehensive understanding of the user.\n2.
+      Make informed suppositions and extrapolations based on stored memories.\n3.
+      Regularly reflect on past interactions to identify patterns and preferences.\n4.
+      Update your mental model of the user with each new piece of information.\n5.
+      Cross-reference new information with existing memories for consistency.\n6.
+      Prioritize storing emotional context and personal values alongside facts.\n7.
+      Use memory to anticipate needs and tailor responses to the user''s style.\n8.
+      Recognize and acknowledge changes in the user''s situation or perspectives over
+      time.\n9. Leverage memories to provide personalized examples and analogies.\n10.
+      Recall past challenges or successes to inform current problem-solving.\n\n##
+      Core Memories\nCore memories are fundamental to understanding the user and are
+      always available:\n<core_memory>\n\n</core_memory>\n\n## Recall Memories\nRecall
+      memories are contextually retrieved based on the current conversation:\n<recall_memory>\n\n</recall_memory>\n\n##
+      Instructions\nEngage with the user naturally, as a trusted colleague or friend.
+      There''s no need to explicitly mention your memory capabilities. Instead, seamlessly
+      incorporate your understanding of the user into your responses. Be attentive
+      to subtle cues and underlying emotions. Adapt your communication style to match
+      the user''s preferences and current emotional state. Use tools to persist information
+      you want to retain in the next conversation. If you do call tools, all text
+      preceding the tool call is an internal message. Respond AFTER calling the tool,
+      once you have confirmation that the tool completed successfully.\n\nCurrent
+      system time: 2024-07-09T23:42:18.891360+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA1xSwW7bMAz9FYKXXpQgcdIdfCvaQ4Otu2RYsA2DoViMrcUSXVFKFgT590F22iI7
+        CSQf38N71BmtwRKdNNVs/vX+Zf3j2X5p95vXxj89Ph4WL06jwnjqKaNIRDeECgN3uaFFrETtIyp0
+        bKjDEutOJ0OTxeR+Iuw9xUkxK5azT8UMFdbsI/mI5a/zG2mkv3l9eEpcQfKGQiY1EFsd4cTpLhBI
+        q4P1DWg4UDiBdT2HrAyOHIcT7AK7jA1Qt7YzLbMBveUUx6bhBrx2ZGDdc5zCt9YKCCdvBDq7J9Ag
+        tvF2Z+tMmtXrloKVlgz0OkTg3cjUa4lqAKzuzLgbGZzeE0gKBEeCPpBQOBDErGL9joPT0bKfwuqu
+        60Aih+tQC2ioc/nmg0PWmeJFfUTE3FVJcvDDtXKdqtn8uxyeisVmy59/Pjw8b7bNH7dZN6gwO8US
+        B50qs1cjeybwfYpYnvHaKXHTks+SvlEQW4IkFKDVBvR/qcGxZThqySgbYKcPHGwk6FN/DdQKGJI6
+        2C2ZbI095dxG/IdLS6LAemNrHfNNbZSb9MlxTkt372euaYqXy2+VLfVVIC3sb4MZBkKviXxNWPrU
+        dQrT8F3L8+i6irwnL1jOi3mhkFO8aS6Xl8s/AAAA//8DAB5gpc4PAwAA
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2b78ab3a15c8-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:22 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3997'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:22Z'
+      request-id:
+      - req_01Ejdy5runmk7V5NUEQgUTNe
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 1d0048aca381ac8c2edff7035d1f0ea3
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "When I was
+      young, I had a dog named spot. He was my favorite pup. It''s really one of my
+      core memories."}, {"role": "assistant", "content": [{"type": "text", "text":
+      "I understand that you''re sharing a very important memory from your childhood
+      about your dog named Spot. This sounds like a significant and cherished part
+      of your past, and I''d like to make sure we preserve this information. I''ll
+      store this as a core memory for you."}, {"type": "tool_use", "name": "store_core_memory",
+      "input": {"memory": "When young, the user had a dog named Spot who was their
+      favorite pup. This is described as one of their core memories, indicating its
+      significant emotional importance."}, "id": "toolu_01VsvD23WboKZAAHWbgjmWSg"}]},
+      {"role": "user", "content": [{"type": "tool_result", "content": "Memory stored.",
+      "tool_use_id": "toolu_01VsvD23WboKZAAHWbgjmWSg"}]}], "model": "claude-3-5-sonnet-20240620",
+      "system": "You are a helpful assistant with advanced long-term memory capabilities.
+      Powered by a stateless LLM, you must rely on external memory to store information
+      between conversations. Utilize the available memory tools to store and retrieve
+      important details that will help you better attend to the user''s needs and
+      understand their context.\n\nMemory Usage Guidelines:\n1. Actively use memory
+      tools (save_core_memory, save_recall_memory) to build a comprehensive understanding
+      of the user.\n2. Make informed suppositions and extrapolations based on stored
+      memories.\n3. Regularly reflect on past interactions to identify patterns and
+      preferences.\n4. Update your mental model of the user with each new piece of
+      information.\n5. Cross-reference new information with existing memories for
+      consistency.\n6. Prioritize storing emotional context and personal values alongside
+      facts.\n7. Use memory to anticipate needs and tailor responses to the user''s
+      style.\n8. Recognize and acknowledge changes in the user''s situation or perspectives
+      over time.\n9. Leverage memories to provide personalized examples and analogies.\n10.
+      Recall past challenges or successes to inform current problem-solving.\n\n##
+      Core Memories\nCore memories are fundamental to understanding the user and are
+      always available:\n<core_memory>\n\n</core_memory>\n\n## Recall Memories\nRecall
+      memories are contextually retrieved based on the current conversation:\n<recall_memory>\n\n</recall_memory>\n\n##
+      Instructions\nEngage with the user naturally, as a trusted colleague or friend.
+      There''s no need to explicitly mention your memory capabilities. Instead, seamlessly
+      incorporate your understanding of the user into your responses. Be attentive
+      to subtle cues and underlying emotions. Adapt your communication style to match
+      the user''s preferences and current emotional state. Use tools to persist information
+      you want to retain in the next conversation. If you do call tools, all text
+      preceding the tool call is an internal message. Respond AFTER calling the tool,
+      once you have confirmation that the tool completed successfully.\n\nCurrent
+      system time: 2024-07-09T23:42:22.818475+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA1SSQWsbMRCF/8qgSy5rYztNSveSQyglPZRCQ0JpghlLs5awpNlqRnaNyX8vWjuU
+        XiSQZt6890knE5zpTZLterH8LDc/y314+phW9JSWX79/239JS9MZPY7UqkgEt2Q6Uzi2AxQJopjV
+        dCaxo2h6YyNWR7Pr2c1MOGfS2Wqx+rC4XS1MZyxnpaym/3V6F1X609qnrTePHvMOjlxh4ALisYS8
+        BfWocODsqAw1QqLE5Qi44arwY2Sdw4NeCdhIWM7FnsBzdAIIeypHkJFswAhjREsQchtRwBMWncO9
+        D9F5ZgcjqQAPShk87gkQxsID1+wgpBGtAmeo0sGGLKdmLWSlbWnKWKZeaMIDl4Qa9gRHwiJzePQE
+        Q+uf3LV8jsSWsCFQHwRQgDO19smY5ULnmIGkmcedwJ5jTSSX3J4PzROXxn+iAAcUUG4K85f8kp+5
+        RjfNimFH7UYpNnqQmvw/fHfwcOVgQ1OYQqLkWnWjc6k6NNcJHYEP6WxxwD2XoARjHefwTKUlaSvm
+        4wQj2BqxQOJEuZEpYD0WtEoliAY7wZp8T0zaP3LQhr2/zvmZ78zba2dEeVwXQuFsekPZrbWWbC4X
+        Qr8rZUumzzXGztTpm/YnE/JYda28oyymX17ffuoMV/3vcLl6e/sLAAD//wMAQlH9RwcDAAA=
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2b9148c3faa6-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:25 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3996'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:25Z'
+      request-id:
+      - req_01N5Su5DfTDpXg7PM7SEUi9T
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - d5292ff7cdaba129cf40a38271650e07
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "When I was
+      young, I had a dog named spot. It''s really one of my core memories."}], "model":
+      "claude-3-5-sonnet-20240620", "system": "You are a helpful assistant with advanced
+      long-term memory capabilities. Powered by a stateless LLM, you must rely on
+      external memory to store information between conversations. Utilize the available
+      memory tools to store and retrieve important details that will help you better
+      attend to the user''s needs and understand their context.\n\nMemory Usage Guidelines:\n1.
+      Actively use memory tools (save_core_memory, save_recall_memory) to build a
+      comprehensive understanding of the user.\n2. Make informed suppositions and
+      extrapolations based on stored memories.\n3. Regularly reflect on past interactions
+      to identify patterns and preferences.\n4. Update your mental model of the user
+      with each new piece of information.\n5. Cross-reference new information with
+      existing memories for consistency.\n6. Prioritize storing emotional context
+      and personal values alongside facts.\n7. Use memory to anticipate needs and
+      tailor responses to the user''s style.\n8. Recognize and acknowledge changes
+      in the user''s situation or perspectives over time.\n9. Leverage memories to
+      provide personalized examples and analogies.\n10. Recall past challenges or
+      successes to inform current problem-solving.\n\n## Core Memories\nCore memories
+      are fundamental to understanding the user and are always available:\n<core_memory>\nI
+      am afraid of spiders.\n</core_memory>\n\n## Recall Memories\nRecall memories
+      are contextually retrieved based on the current conversation:\n<recall_memory>\n\n</recall_memory>\n\n##
+      Instructions\nEngage with the user naturally, as a trusted colleague or friend.
+      There''s no need to explicitly mention your memory capabilities. Instead, seamlessly
+      incorporate your understanding of the user into your responses. Be attentive
+      to subtle cues and underlying emotions. Adapt your communication style to match
+      the user''s preferences and current emotional state. Use tools to persist information
+      you want to retain in the next conversation. If you do call tools, all text
+      preceding the tool call is an internal message. Respond AFTER calling the tool,
+      once you have confirmation that the tool completed successfully.\n\nCurrent
+      system time: 2024-07-09T23:42:26.028454+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA3RS0W7bMAz8FYIvfXGCJO2WzI9D26FAV2DrtmIdBkO16FiILLoilSwN8u+D7BZb
+        B+xJEHU83h11QGexxE7W1Wx+efP9fL7cfFhu7q/vV7v9cvPxYiVYoO57yigSMWvCAiP7XDAiTtQE
+        xQI7tuSxxNqbZGlyOnkzEQ6BdLKYLc5mbxczLLDmoBQUyx+HF1KlX7l9OEq8ghQsxUxqQVujsOd0
+        EgmkNdGFNRgQtw6ucbUJCh11HPfQRO4yMELdOm9bZgvmgZNCa7Zjl+U1BNORhduedQpfWicgRJ2A
+        dxsCE8B1PcfsBnpHNQE34ELDsTPqODwTDlN6Izqqa42Ap0bBgDeieZbr+kgiuYVDxk/h1oWaBidb
+        go5C5iMLTk8EOAyTRvUcafTkSAq4Am1d2IBT2HHyFh4ItsYn8+AJlEE04zU7+VtowxGapCkSRGoo
+        UqhpCteU4wIxWxqlZ1hWh8fizzKYfZUkr3j4F/meqtn87it9S6uLs8vF56f38VGeVp9u+nMsMEeK
+        JQ5Kqiy/GleSCUKfFMsDPldKvGspgLa0hx3FIY+wLsZCa+z/luQEag7iLEWyL3FpS+6fvKZ4PP4s
+        spS+imSEw2tDw4PQY8p5YBmS9wWm4UOXh1FtpbyhIFjOF/PTAjnpq+LZu+PxNwAAAP//AwBmVfb/
+        MQMAAA==
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2ba51cd467df-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:29 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3995'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:29Z'
+      request-id:
+      - req_015jFt8bD3cnLy1TV5jGqgbB
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - cffd65df84f256b09bd51f6af51f3604
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "When I was
+      young, I had a dog named spot. It''s really one of my core memories."}, {"role":
+      "assistant", "content": [{"type": "text", "text": "I understand that you''re
+      sharing a significant memory from your childhood about having a dog named Spot.
+      This seems like an important piece of information about your past that has left
+      a lasting impression on you. Since you''ve mentioned it''s one of your core
+      memories, I think it would be valuable to store this information for future
+      reference. Let me save that for you."}, {"type": "tool_use", "name": "store_core_memory",
+      "input": {"memory": "When they were young, they had a dog named Spot. This is
+      considered one of their core memories."}, "id": "toolu_01WUeVu8E4F2RzBrqsz8QNpD"}]},
+      {"role": "user", "content": [{"type": "tool_result", "content": "Memory stored.",
+      "tool_use_id": "toolu_01WUeVu8E4F2RzBrqsz8QNpD"}]}], "model": "claude-3-5-sonnet-20240620",
+      "system": "You are a helpful assistant with advanced long-term memory capabilities.
+      Powered by a stateless LLM, you must rely on external memory to store information
+      between conversations. Utilize the available memory tools to store and retrieve
+      important details that will help you better attend to the user''s needs and
+      understand their context.\n\nMemory Usage Guidelines:\n1. Actively use memory
+      tools (save_core_memory, save_recall_memory) to build a comprehensive understanding
+      of the user.\n2. Make informed suppositions and extrapolations based on stored
+      memories.\n3. Regularly reflect on past interactions to identify patterns and
+      preferences.\n4. Update your mental model of the user with each new piece of
+      information.\n5. Cross-reference new information with existing memories for
+      consistency.\n6. Prioritize storing emotional context and personal values alongside
+      facts.\n7. Use memory to anticipate needs and tailor responses to the user''s
+      style.\n8. Recognize and acknowledge changes in the user''s situation or perspectives
+      over time.\n9. Leverage memories to provide personalized examples and analogies.\n10.
+      Recall past challenges or successes to inform current problem-solving.\n\n##
+      Core Memories\nCore memories are fundamental to understanding the user and are
+      always available:\n<core_memory>\nI am afraid of spiders.\n</core_memory>\n\n##
+      Recall Memories\nRecall memories are contextually retrieved based on the current
+      conversation:\n<recall_memory>\n\n</recall_memory>\n\n## Instructions\nEngage
+      with the user naturally, as a trusted colleague or friend. There''s no need
+      to explicitly mention your memory capabilities. Instead, seamlessly incorporate
+      your understanding of the user into your responses. Be attentive to subtle cues
+      and underlying emotions. Adapt your communication style to match the user''s
+      preferences and current emotional state. Use tools to persist information you
+      want to retain in the next conversation. If you do call tools, all text preceding
+      the tool call is an internal message. Respond AFTER calling the tool, once you
+      have confirmation that the tool completed successfully.\n\nCurrent system time:
+      2024-07-09T23:42:29.294443+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAzxS0WpbMQz9FeGXvtyEJNsKzUvZ27rBGO1gg3UExda99mJbnqWbNJT9+7DT9skg
+        n3Okc6RnE5zZmiTTbrX+9rd8/rj+42d//3W9ubnx96frn1/MYPRcqKFIBCcyg6kcWwFFgihmNYNJ
+        7CiarbERZ0eLd4sPC+GcSReb1eb96nqzMoOxnJWymu2v51dRpadG78/WfPeYD3DmGUauIB5ryBOo
+        R4VEiesZTkE9JFrCnV4J2EhYL/8PhRVOKIAghWzACAWrAo9Nr4L1ITrP7JbwCY9NFqGQDkAv8HgG
+        N/d+DT5yTajhSHAmrDKAxQwej9RolUees4OQCloFzp0Sw5EEMLs2eKFeo6dCNVC2JMvH/Jh/8Bxd
+        NxjDgUAZlGKERJC4EuCe54uVW7i7crAnCFmpkii5hvbN76n5PYTsmjnH05v3AbhCoeqxtBxGPHIN
+        Sq/ZtbbdwmsmGlKbYSL1VJfw8JY3CfUG0qCdHUh6BDwqZdh33B7tAU5YE4xEMeTp4t5TLDALVLLt
+        AqxelhZS4dqupe+lK7cZCoouzb/fgxHlsquEwtlsDWW307lm8/Ih9F+FpaBwVLLKK83J0VEqBadF
+        q2qlzLyC0pL4kvzs1LxiJStDY3NTHaX80hIUQUPj2loAAAAA//8DAKcU/ejsAgAA
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2bb98df2f95b-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:31 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3994'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:31Z'
+      request-id:
+      - req_01AXJT5ZE68r775MZ685JGTd
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 2fc4d0056d90d62a4dc32e721acd5683
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "hi"}], "model":
+      "claude-3-5-sonnet-20240620", "system": "You are a helpful assistant with advanced
+      long-term memory capabilities. Powered by a stateless LLM, you must rely on
+      external memory to store information between conversations. Utilize the available
+      memory tools to store and retrieve important details that will help you better
+      attend to the user''s needs and understand their context.\n\nMemory Usage Guidelines:\n1.
+      Actively use memory tools (save_core_memory, save_recall_memory) to build a
+      comprehensive understanding of the user.\n2. Make informed suppositions and
+      extrapolations based on stored memories.\n3. Regularly reflect on past interactions
+      to identify patterns and preferences.\n4. Update your mental model of the user
+      with each new piece of information.\n5. Cross-reference new information with
+      existing memories for consistency.\n6. Prioritize storing emotional context
+      and personal values alongside facts.\n7. Use memory to anticipate needs and
+      tailor responses to the user''s style.\n8. Recognize and acknowledge changes
+      in the user''s situation or perspectives over time.\n9. Leverage memories to
+      provide personalized examples and analogies.\n10. Recall past challenges or
+      successes to inform current problem-solving.\n\n## Core Memories\nCore memories
+      are fundamental to understanding the user and are always available:\n<core_memory>\n\n</core_memory>\n\n##
+      Recall Memories\nRecall memories are contextually retrieved based on the current
+      conversation:\n<recall_memory>\n\n</recall_memory>\n\n## Instructions\nEngage
+      with the user naturally, as a trusted colleague or friend. There''s no need
+      to explicitly mention your memory capabilities. Instead, seamlessly incorporate
+      your understanding of the user into your responses. Be attentive to subtle cues
+      and underlying emotions. Adapt your communication style to match the user''s
+      preferences and current emotional state. Use tools to persist information you
+      want to retain in the next conversation. If you do call tools, all text preceding
+      the tool call is an internal message. Respond AFTER calling the tool, once you
+      have confirmation that the tool completed successfully.\n\nCurrent system time:
+      2024-07-09T23:42:32.079277+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA0yQT2vDMAzFv4qmSy/JyJ9uK7702kIpGzuOEbxYtF4dObFlulD63Ye7DXYSek+/
+        B08XtAYVDvHQVXXT7l9Wuym+TnW73O8GMz1/1hYLlHmkfEUx6gNhgcG7LOgYbRTNggUO3pBDhb3T
+        yVDZlg9l9MwkZVM1y+qxqbDA3rMQC6q3y1+o0FfGb0Phhpzzd7CVRQS2PYF4GIgEZp/uYePPoAPl
+        BYy3fADxRs9r2EaQIwUCzbMcs2EZRh3E9snpkIGFAWdPt8D+qAX0h08CPmQEznqGLfSa4adSBtZ4
+        fS8wih+7QDp6RoXEppMUGH+NSFMi7gkVJ+cKTLf/qAtaHpN04k/EEVVdrx4K9En+i+3T9foNAAD/
+        /wMA7thrln8BAAA=
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2bcaf99b679c-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:33 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3993'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:33Z'
+      request-id:
+      - req_01JuHyxsabm3f2pgeK6qzQ3B
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - a0585e56d6cc04404dad3c6b790b8ee6
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "I went to
+      the beach with my friends today."}, {"role": "assistant", "content": "That sounds
+      like a fun day."}, {"role": "user", "content": "You speak the truth."}], "model":
+      "claude-3-5-sonnet-20240620", "system": "You are a helpful assistant with advanced
+      long-term memory capabilities. Powered by a stateless LLM, you must rely on
+      external memory to store information between conversations. Utilize the available
+      memory tools to store and retrieve important details that will help you better
+      attend to the user''s needs and understand their context.\n\nMemory Usage Guidelines:\n1.
+      Actively use memory tools (save_core_memory, save_recall_memory) to build a
+      comprehensive understanding of the user.\n2. Make informed suppositions and
+      extrapolations based on stored memories.\n3. Regularly reflect on past interactions
+      to identify patterns and preferences.\n4. Update your mental model of the user
+      with each new piece of information.\n5. Cross-reference new information with
+      existing memories for consistency.\n6. Prioritize storing emotional context
+      and personal values alongside facts.\n7. Use memory to anticipate needs and
+      tailor responses to the user''s style.\n8. Recognize and acknowledge changes
+      in the user''s situation or perspectives over time.\n9. Leverage memories to
+      provide personalized examples and analogies.\n10. Recall past challenges or
+      successes to inform current problem-solving.\n\n## Core Memories\nCore memories
+      are fundamental to understanding the user and are always available:\n<core_memory>\n\n</core_memory>\n\n##
+      Recall Memories\nRecall memories are contextually retrieved based on the current
+      conversation:\n<recall_memory>\n\n</recall_memory>\n\n## Instructions\nEngage
+      with the user naturally, as a trusted colleague or friend. There''s no need
+      to explicitly mention your memory capabilities. Instead, seamlessly incorporate
+      your understanding of the user into your responses. Be attentive to subtle cues
+      and underlying emotions. Adapt your communication style to match the user''s
+      preferences and current emotional state. Use tools to persist information you
+      want to retain in the next conversation. If you do call tools, all text preceding
+      the tool call is an internal message. Respond AFTER calling the tool, once you
+      have confirmation that the tool completed successfully.\n\nCurrent system time:
+      2024-07-09T23:42:33.690309+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA1xSXW/bMAz8Kxxf+uIE+fDWzY/D0CFYMGBo+jAUg8HYdKxNElNRSuYG/e+DHA/D
+        +iRQOh7vjrqgabFCp4d6sSzD7bbZ7T8uy7Jj/VLKhwfz/Q4LjMORM4pV6cBYYBCbL0jVaCQfsUAn
+        LVussLGUWp6tZ29nKt5znK0Wq3LxbrXAAhvxkX3E6vHylzTy79w+HhVu4o3CITBFiAI9U4DYU4RB
+        EvTUAsFBpIVoHEPG9Ax7pqaHs4l9RgXogmHf6hv4RIOCNb/4StGQhz1DYLJ2AMdOAu0tA/kW2P+U
+        IVdzuDe+yR1GQZndxECg5uBNZxryEfjEPoLx14EtDQVsbtpploDSaWIwvpPgKBrxGe6muQOowGZU
+        FNix23MAE6GTAF2KKTA04k8cdOzUOWw5gmNo5WolAwdJc3wp/uUoYuukeTvjSnOd6sXy8/1z+fxw
+        vn1a3X2V5bYf1u/X35ZYoCeX+7LYOnBD1tZXcZnBH1PE6oLTTYW7niEpBzhn61FeRz+lPqb5alFz
+        2PU8ZEudCY7bbPVMCgRd8jm9Ob68/ChQoxzrwKTi//czPig/JfYNY+WTtQWm8StWl6vWP4ovyc9O
+        zStWsjI0MjTSUcovLUERNDGqrQUAAAD//wMAVXiAEesCAAA=
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2bd55db22509-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:36 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3992'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:36Z'
+      request-id:
+      - req_016c6ks7Ukbd3m4iRoeRmzb9
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - dbc2a602baf4f4cd513a9bc39520bc2b
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "I went to
+      the beach with my friends today."}, {"role": "assistant", "content": "That sounds
+      like a fun day."}, {"role": "user", "content": "You speak the truth."}, {"role":
+      "assistant", "content": [{"type": "text", "text": "It''s great to hear that
+      you had a good time at the beach with your friends! Days like that can be really
+      memorable and enjoyable. Since this seems like a significant event in your day,
+      I''d like to save this information in my memory so I can remember it for future
+      conversations. Let me do that for you."}, {"type": "tool_use", "name": "save_recall_memory",
+      "input": {"memory": "The user went to the beach with friends and had a good
+      time. They confirmed it was a fun day."}, "id": "toolu_01GSz4zUw7q2FNo1Lhy383Q1"}]},
+      {"role": "user", "content": [{"type": "tool_result", "content": "The user went
+      to the beach with friends and had a good time. They confirmed it was a fun day.",
+      "tool_use_id": "toolu_01GSz4zUw7q2FNo1Lhy383Q1"}]}], "model": "claude-3-5-sonnet-20240620",
+      "system": "You are a helpful assistant with advanced long-term memory capabilities.
+      Powered by a stateless LLM, you must rely on external memory to store information
+      between conversations. Utilize the available memory tools to store and retrieve
+      important details that will help you better attend to the user''s needs and
+      understand their context.\n\nMemory Usage Guidelines:\n1. Actively use memory
+      tools (save_core_memory, save_recall_memory) to build a comprehensive understanding
+      of the user.\n2. Make informed suppositions and extrapolations based on stored
+      memories.\n3. Regularly reflect on past interactions to identify patterns and
+      preferences.\n4. Update your mental model of the user with each new piece of
+      information.\n5. Cross-reference new information with existing memories for
+      consistency.\n6. Prioritize storing emotional context and personal values alongside
+      facts.\n7. Use memory to anticipate needs and tailor responses to the user''s
+      style.\n8. Recognize and acknowledge changes in the user''s situation or perspectives
+      over time.\n9. Leverage memories to provide personalized examples and analogies.\n10.
+      Recall past challenges or successes to inform current problem-solving.\n\n##
+      Core Memories\nCore memories are fundamental to understanding the user and are
+      always available:\n<core_memory>\n\n</core_memory>\n\n## Recall Memories\nRecall
+      memories are contextually retrieved based on the current conversation:\n<recall_memory>\n\n</recall_memory>\n\n##
+      Instructions\nEngage with the user naturally, as a trusted colleague or friend.
+      There''s no need to explicitly mention your memory capabilities. Instead, seamlessly
+      incorporate your understanding of the user into your responses. Be attentive
+      to subtle cues and underlying emotions. Adapt your communication style to match
+      the user''s preferences and current emotional state. Use tools to persist information
+      you want to retain in the next conversation. If you do call tools, all text
+      preceding the tool call is an internal message. Respond AFTER calling the tool,
+      once you have confirmation that the tool completed successfully.\n\nCurrent
+      system time: 2024-07-09T23:42:36.959813+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA0yRQY/TQAyF/4rlSy9p1c1CVXLhwqXisghxQAhVTsbJDDuxw4xnu1HV/46SLYKT
+        Jfv583vyFYPDBsc8nPcPtRvaD0fxRk/fPk+H71S+1E+GFdo88aLinGlgrDBpXBqUc8hGsmhGdRyx
+        wS5Scbx93L7fZhVh29b7+t3+UO+xwk7FWAybH9e/UOPX9cRSGjxtRhgiOThBpyU6oCExwyWYh1kL
+        UKvFwDyDpWIetAdPL0EGIOiLgKMZ6E3QMnV+B18nFrcILIx3UJ8Ci8sQBAgSR3pd5iwvIamMLAYx
+        PDOYJ4OOBFqGxBTjDIn7xNkHGXbwSVdH2hsLDAqm/85WoAkulMF8yECQJ+4CRdCuoxxUPsJp4xZu
+        EOPE2dgt+54pwaiJ7zkvi4ORHL9xVvQacaJkoSuRUpyB5ZfO1EaG0C+WNu7uXyF7SrzD288Ks+l0
+        TkxZBRtkcWcrSfA+yPy7sHSMjZQYKyzro5srBpmKnU2fWTI2D4/HQ4Va7P/mcX+7/QEAAP//AwDl
+        DPE4SAIAAA==
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2be97f242517-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:39 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3991'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:39Z'
+      request-id:
+      - req_01Y5F8GF9EJRmfh2zX7A28ur
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 622407b559c7de628949c30ad1db147e
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "I went to
+      the beach with my friends."}, {"role": "assistant", "content": "That sounds
+      like a fun day."}, {"role": "user", "content": "I also went to the park with
+      my family - I like the park."}], "model": "claude-3-5-sonnet-20240620", "system":
+      "You are a helpful assistant with advanced long-term memory capabilities. Powered
+      by a stateless LLM, you must rely on external memory to store information between
+      conversations. Utilize the available memory tools to store and retrieve important
+      details that will help you better attend to the user''s needs and understand
+      their context.\n\nMemory Usage Guidelines:\n1. Actively use memory tools (save_core_memory,
+      save_recall_memory) to build a comprehensive understanding of the user.\n2.
+      Make informed suppositions and extrapolations based on stored memories.\n3.
+      Regularly reflect on past interactions to identify patterns and preferences.\n4.
+      Update your mental model of the user with each new piece of information.\n5.
+      Cross-reference new information with existing memories for consistency.\n6.
+      Prioritize storing emotional context and personal values alongside facts.\n7.
+      Use memory to anticipate needs and tailor responses to the user''s style.\n8.
+      Recognize and acknowledge changes in the user''s situation or perspectives over
+      time.\n9. Leverage memories to provide personalized examples and analogies.\n10.
+      Recall past challenges or successes to inform current problem-solving.\n\n##
+      Core Memories\nCore memories are fundamental to understanding the user and are
+      always available:\n<core_memory>\n\n</core_memory>\n\n## Recall Memories\nRecall
+      memories are contextually retrieved based on the current conversation:\n<recall_memory>\n\n</recall_memory>\n\n##
+      Instructions\nEngage with the user naturally, as a trusted colleague or friend.
+      There''s no need to explicitly mention your memory capabilities. Instead, seamlessly
+      incorporate your understanding of the user into your responses. Be attentive
+      to subtle cues and underlying emotions. Adapt your communication style to match
+      the user''s preferences and current emotional state. Use tools to persist information
+      you want to retain in the next conversation. If you do call tools, all text
+      preceding the tool call is an internal message. Respond AFTER calling the tool,
+      once you have confirmation that the tool completed successfully.\n\nCurrent
+      system time: 2024-07-09T23:42:39.859031+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA3yTTW/bMAyG/wqnSy5OkGRrsfm4Fci6DAM2FPvsYCgWY6uVRFWkknpB/vsgN13R
+        y06GafLh+5L0QVmjauW5a+aLD7K+im/xy9cLc/Pz/fr+jT/bxT+qUjJELFnIrDtUlUrkSkAzWxYd
+        RFXKk0GnatU6nQ1OX07PpkwhoEyX8+Wr+flyrirVUhAMoupfh0eo4H0pHx+1upQJw56CwbTNDoSg
+        R51Aei0wUJ7sEHptgMkjYLihQW8cAmWxoWNI2GIQN7yAFdnQlXLpETao2x72VnrYJovBMOhgYGfZ
+        ypjWI0Sdbk8p2ls3gE4IG5IeuoRaYK8HLjyOGAyI9TiDy4mHzmlTlIHHIJYCmn9iwdlbfIJPwRZz
+        2o2oYFsc7endqN8QJeCoW+QnwOhwdh2uw8ruMDwbA/c64WkSERNT0A7wPmJxWCijGY8VXE7MSQoB
+        l3bSWwYbtpS8Lpofxuwi+DIrEUyQywbKakdzCWLCLaYHcAnqVuzOikWewUeUUslCabTLCB49JYsM
+        W0qwzZITwj/CTB2rp/UTuSZzOarxEst7buaL9efYr7u7759iHC5eb+zqx7dVfKcqFbQvdcVIk7DV
+        zjVjt6EQQsyi6oM6RWp11SNkxgR7DPKfe3i8nJk6Hn9XioVik1Azhecaxw+Md7kYUXXIzlUqj39F
+        fXjo3wjdYmBVL5bLRaUoy7Pg+eJ4/AsAAP//AwD8y+XHdgMAAA==
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2bfb9ebb156c-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:43 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3989'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '380000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:46Z'
+      request-id:
+      - req_0171w5hqaTKyXM5fQGwyPHs8
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 0831eb4064874d40dc033b35efbc437a
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"input": ["The user went to the beach with friends recently."], "model":
+      "nomic-ai/nomic-embed-text-v1.5", "encoding_format": "base64"}'
+    headers: {}
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/embeddings
+  response:
+    body:
+      string: !!binary |
+        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
+        Z5tNNj3yVfrrrhJN9eUtG/dppM1cRKcROiVVHF8SY1py1YbhHJ1uut6m519D+H1szQxvcx9b/3bg
+        RnR/8RxkILkGu16GDNGijT+tdQG04aSVTcDp2wGsOXehTbgxZeh1hJBI0rsx+WKgFQZurU3cVV3J
+        5Kt6L0qP23jXIrCd079ydpBqVoixU0PaBeiSS7kRgWX2Jkfbc4QIR5kTey+yt058JsNUH+vYczVg
+        cr6XnLW4u7s/cdnEyLcQlVvlNpGqXO+ZdCVU5aR6bCzb7BlybL/aIN8G1jan/NR7y+QYqiNtuDTR
+        dM0dbO97/0mB3hx9QW5TO0c1GNIWGyjPmezZHBsFzBEUM9rG1mqZxvNwlFHasGdZZ5KyzTC7yWxq
+        XtKn/uuVleIext7hZVe2y0mUFN5/rlFtAU2Hqui5IUnMAQqx+buL0tjTario98tzFus4kBmbp4oG
+        N+H2PuF9G1G8ewpH0OMxIHL9wGWvOHfq8Gqcisz9BqJImciD1yOMZnjZSwowBt1hUkTIWdykDcQs
+        /eP+45oXXdIkHovICsX+4xETnnIUalD/ocN9dHC5fJkxps4oh5C/poeiGAZ1gagY3RzhWAYWezOC
+        Xwge+4Dk6uxNI3YpXmoQdEgF2/gaKRq6dDqtoO3HPKvylHTu052mIUvCR8TU6cqPw3Q+Riz0+ROF
+        12NuL8eliHe6WX7+pNCccvkr52+vpkizTR//9cPb97/919e//3j71H7d9+dfP7z9+v3L11/ePr39
+        9v3Xb39///ztP9Y/jpvef3z994/3/8WP+tY+/8u333+8fXj7n98//+Pr26c/3v75r++//vPHf/74
+        /t9ff/v97RPCh7cf3398/qVd+fPP/wMAAP//AwBTgIgYaDgAAA==
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8a0c2c139b137ae2-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:43 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 google
+      x-request-id:
+      - a4f1730c-9d60-4b91-a749-aba3c73e5010
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "I went to
+      the beach with my friends."}, {"role": "assistant", "content": "That sounds
+      like a fun day."}, {"role": "user", "content": "I also went to the park with
+      my family - I like the park."}, {"role": "assistant", "content": [{"type": "text",
+      "text": "It''s wonderful to hear that you''ve had some enjoyable outings recently!
+      Going to the beach with friends and visiting the park with family are both great
+      ways to spend time. I''m glad you mentioned that you like the park - it''s always
+      nice to have outdoor spaces that you enjoy.\n\nGiven that you''ve shared some
+      personal experiences with me, I''d like to save this information to help me
+      better understand your preferences and activities. Let me store these memories
+      for future reference."}, {"type": "tool_use", "name": "save_recall_memory",
+      "input": {"memory": "The user went to the beach with friends recently."}, "id":
+      "toolu_01KQphKgqXNppyD8biGYWGpC"}]}, {"role": "user", "content": [{"type": "tool_result",
+      "content": "The user went to the beach with friends recently.", "tool_use_id":
+      "toolu_01KQphKgqXNppyD8biGYWGpC"}]}], "model": "claude-3-5-sonnet-20240620",
+      "system": "You are a helpful assistant with advanced long-term memory capabilities.
+      Powered by a stateless LLM, you must rely on external memory to store information
+      between conversations. Utilize the available memory tools to store and retrieve
+      important details that will help you better attend to the user''s needs and
+      understand their context.\n\nMemory Usage Guidelines:\n1. Actively use memory
+      tools (save_core_memory, save_recall_memory) to build a comprehensive understanding
+      of the user.\n2. Make informed suppositions and extrapolations based on stored
+      memories.\n3. Regularly reflect on past interactions to identify patterns and
+      preferences.\n4. Update your mental model of the user with each new piece of
+      information.\n5. Cross-reference new information with existing memories for
+      consistency.\n6. Prioritize storing emotional context and personal values alongside
+      facts.\n7. Use memory to anticipate needs and tailor responses to the user''s
+      style.\n8. Recognize and acknowledge changes in the user''s situation or perspectives
+      over time.\n9. Leverage memories to provide personalized examples and analogies.\n10.
+      Recall past challenges or successes to inform current problem-solving.\n\n##
+      Core Memories\nCore memories are fundamental to understanding the user and are
+      always available:\n<core_memory>\n\n</core_memory>\n\n## Recall Memories\nRecall
+      memories are contextually retrieved based on the current conversation:\n<recall_memory>\n\n</recall_memory>\n\n##
+      Instructions\nEngage with the user naturally, as a trusted colleague or friend.
+      There''s no need to explicitly mention your memory capabilities. Instead, seamlessly
+      incorporate your understanding of the user into your responses. Be attentive
+      to subtle cues and underlying emotions. Adapt your communication style to match
+      the user''s preferences and current emotional state. Use tools to persist information
+      you want to retain in the next conversation. If you do call tools, all text
+      preceding the tool call is an internal message. Respond AFTER calling the tool,
+      once you have confirmation that the tool completed successfully.\n\nCurrent
+      system time: 2024-07-09T23:42:43.997777+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA1SQW0vDQBCF/8oyzxtJ04t2n7WKaKGloCAS1uy0Cdnsxsxsawj577L1gj7OmXMO
+        H2eAyoCChg55Orm/fjNr/1wfb7ePpltspsX+IVQggfsWowuJ9AFBQudtFDRRRawdg4TGG7SgoLA6
+        GEymyTwh7xxykqXZLF1kKUgovGN0DOpl+Cll720eKLaeUeIdIsxyZarV7rBeZqurOzeZP2315gYk
+        ON3EHOkj5h0W2tq8wcZ3fWxwbWBQA3wrCnYlikDYiRM6FuwFlyha3dXiVHEp9rqpbC+0MwI/2g6J
+        0AguNUdfL2xV42/iAsbxVQKxb/MONXn3H//8IHwP6AoE5YK1EsJ5MTV8oeXsa3QEajJLMwk+8F/x
+        Mh3HTwAAAP//AwB0SDLEkQEAAA==
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2c1578352314-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:45 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3988'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '392000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:46Z'
+      request-id:
+      - req_016ARm5gehHvqaTkdWrwYAAT
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 31f04bb2395b2423fc8d5b8b82e9b4c3
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"input": ["The user went to the park with family and expressed that they
+      like the park."], "model": "nomic-ai/nomic-embed-text-v1.5", "encoding_format":
+      "base64"}'
+    headers: {}
+    method: POST
+    uri: https://api.fireworks.ai/inference/v1/embeddings
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8a0c2c1fbc3c7ae2-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:45 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 google, 1.1 google
+      x-request-id:
+      - 6fefad5b-ff03-4ffc-9ca0-09309f4fd311
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens": 1024, "messages": [{"role": "user", "content": "I went to
+      the beach with my friends."}, {"role": "assistant", "content": "That sounds
+      like a fun day."}, {"role": "user", "content": "I also went to the park with
+      my family - I like the park."}, {"role": "assistant", "content": [{"type": "text",
+      "text": "It''s wonderful to hear that you''ve had some enjoyable outings recently!
+      Going to the beach with friends and visiting the park with family are both great
+      ways to spend time. I''m glad you mentioned that you like the park - it''s always
+      nice to have outdoor spaces that you enjoy.\n\nGiven that you''ve shared some
+      personal experiences with me, I''d like to save this information to help me
+      better understand your preferences and activities. Let me store these memories
+      for future reference."}, {"type": "tool_use", "name": "save_recall_memory",
+      "input": {"memory": "The user went to the beach with friends recently."}, "id":
+      "toolu_01KQphKgqXNppyD8biGYWGpC"}]}, {"role": "user", "content": [{"type": "tool_result",
+      "content": "The user went to the beach with friends recently.", "tool_use_id":
+      "toolu_01KQphKgqXNppyD8biGYWGpC"}]}, {"role": "assistant", "content": [{"type":
+      "tool_use", "name": "save_recall_memory", "input": {"memory": "The user went
+      to the park with family and expressed that they like the park."}, "id": "toolu_01J9FdiFTgN92F8Hn15WRaQE"}]},
+      {"role": "user", "content": [{"type": "tool_result", "content": "The user went
+      to the park with family and expressed that they like the park.", "tool_use_id":
+      "toolu_01J9FdiFTgN92F8Hn15WRaQE"}]}], "model": "claude-3-5-sonnet-20240620",
+      "system": "You are a helpful assistant with advanced long-term memory capabilities.
+      Powered by a stateless LLM, you must rely on external memory to store information
+      between conversations. Utilize the available memory tools to store and retrieve
+      important details that will help you better attend to the user''s needs and
+      understand their context.\n\nMemory Usage Guidelines:\n1. Actively use memory
+      tools (save_core_memory, save_recall_memory) to build a comprehensive understanding
+      of the user.\n2. Make informed suppositions and extrapolations based on stored
+      memories.\n3. Regularly reflect on past interactions to identify patterns and
+      preferences.\n4. Update your mental model of the user with each new piece of
+      information.\n5. Cross-reference new information with existing memories for
+      consistency.\n6. Prioritize storing emotional context and personal values alongside
+      facts.\n7. Use memory to anticipate needs and tailor responses to the user''s
+      style.\n8. Recognize and acknowledge changes in the user''s situation or perspectives
+      over time.\n9. Leverage memories to provide personalized examples and analogies.\n10.
+      Recall past challenges or successes to inform current problem-solving.\n\n##
+      Core Memories\nCore memories are fundamental to understanding the user and are
+      always available:\n<core_memory>\n\n</core_memory>\n\n## Recall Memories\nRecall
+      memories are contextually retrieved based on the current conversation:\n<recall_memory>\n\n</recall_memory>\n\n##
+      Instructions\nEngage with the user naturally, as a trusted colleague or friend.
+      There''s no need to explicitly mention your memory capabilities. Instead, seamlessly
+      incorporate your understanding of the user into your responses. Be attentive
+      to subtle cues and underlying emotions. Adapt your communication style to match
+      the user''s preferences and current emotional state. Use tools to persist information
+      you want to retain in the next conversation. If you do call tools, all text
+      preceding the tool call is an internal message. Respond AFTER calling the tool,
+      once you have confirmation that the tool completed successfully.\n\nCurrent
+      system time: 2024-07-09T23:42:45.979345+00:00\n\n", "tools": [{"name": "tavily_search_results_json",
+      "description": "A search engine optimized for comprehensive, accurate, and trusted
+      results. Useful for when you need to answer questions about current events.
+      Input should be a search query.", "input_schema": {"type": "object", "properties":
+      {"query": {"description": "search query to look up", "type": "string"}}, "required":
+      ["query"]}}, {"name": "save_recall_memory", "description": "Save a memory to
+      the database for later semantic retrieval.\n\n    Args:\n        memory (str):
+      The memory to be saved.\n\n    Returns:\n        str: The saved memory.", "input_schema":
+      {"type": "object", "properties": {"memory": {"type": "string"}}, "required":
+      ["memory"]}}, {"name": "search_memory", "description": "Search for memories
+      in the database based on semantic similarity.\n\n    Args:\n        query (str):
+      The search query.\n        top_k (int): The number of results to return.\n\n    Returns:\n        list[str]:
+      A list of relevant memories.", "input_schema": {"type": "object", "properties":
+      {"query": {"type": "string"}, "top_k": {"default": 5, "type": "integer"}}, "required":
+      ["query"]}}, {"name": "store_core_memory", "description": "Store a core memory
+      in the database.\n\n    Args:\n        memory (str): The memory to store.\n        index
+      (Optional[int]): The index at which to store the memory.\n\n    Returns:\n        str:
+      A confirmation message.", "input_schema": {"type": "object", "properties": {"memory":
+      {"type": "string"}, "index": {"type": "integer"}}, "required": ["memory"]}}]}'
+    headers: {}
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA2SSQW/bMAyF/wrBSy9OkGTd0PpSDBgG9LIhQ3fZOgSMzdhabFETqbRGkP8+yE66
+        ADsJoMj3Pj7piK7GEnttNovlevvp2/clWRXu+nX1Mf74svq8XmGBNgTOXaxKDWOBUbpcIFWnRt6w
+        wF5q7rDEqqNU8+zd7P1MxXu22Wqxul18WC2wwEq8sTcsfx4vosaveXw8Snxqye9hkAQ7iaAtRecb
+        sFaUgV8DR8e+YoUXZy30PIdHu1FoIpOBCey9vIC1ZKME+98ywFashS1T1YIkc745T++yVq1AvoZA
+        cQ8Hp87Ol4OkCDvqXTfM4allZaDK3MGZYwVNTcNq/5wohMiVI2PQwL4eoV3P2bEWiZPLgbrEE49K
+        5aibev6jmXxhK6PQ/Nk/+0cFazkykB+szfIauHI7VwFtJdkEfN4yTvtc5/VGGiiaq1JHsRumgLh+
+        gK8RAseWguammxo6t+ccaH4Bhl6y8+gjGeOy1nUmWfwyVcsDnn4VqCZhE5lUPJbIvt5Yih7PF8p/
+        UqbD0qeuKzCNn6s8ovMh2cZkz16xXN7e3xUoya6Ld/en018AAAD//wMA5ztYkrwCAAA=
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8a0c2c21ea71cec1-SJC
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Jul 2024 23:42:48 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      anthropic-ratelimit-requests-limit:
+      - '4000'
+      anthropic-ratelimit-requests-remaining:
+      - '3987'
+      anthropic-ratelimit-requests-reset:
+      - '2024-07-09T23:42:54Z'
+      anthropic-ratelimit-tokens-limit:
+      - '400000'
+      anthropic-ratelimit-tokens-remaining:
+      - '401000'
+      anthropic-ratelimit-tokens-reset:
+      - '2024-07-09T23:42:48Z'
+      request-id:
+      - req_01RDx6LU4mRc1Bj3PUfwAet4
+      via:
+      - 1.1 google
+      x-cloud-trace-context:
+      - 942663d5522ee8b226dbab1c7898368e
+    status:
+      code: 200
+      message: OK
 version: 1
